@@ -1,0 +1,11 @@
+.main {
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 20px 32px 0px 92px;
+  background-color: #f3f3f9;
+  transition: padding 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+}
+
+.main-reduced {
+  padding: 20px 32px 0px 230px;
+}
