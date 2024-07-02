@@ -45,7 +45,7 @@ export default function Login() {
             Sign in to your account to continue
           </div>
         </div>
-        <FormLogin />
+        <FormLogin handleLogin={handleLogin}/>
         <HorizontalSeparator label={"OR"} />
         <GoogleLogin onSuccess={responseMessage} />
       </div>

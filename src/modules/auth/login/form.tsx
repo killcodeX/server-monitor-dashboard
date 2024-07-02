@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import type { FormProps } from "antd";
+
+type LoginFormType = {
+  handleLogin: () => void;
+};
 
 type FieldType = {
   username?: string;
   password?: string;
 };
 
-export default function LoginForm() {
+export default function LoginForm({
+  handleLogin,
+}: LoginFormType): React.JSX.Element {
+  const [username, setUserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     console.log("Success:", values);
   };
@@ -17,10 +26,6 @@ export default function LoginForm() {
     errorInfo
   ) => {
     console.log("Failed:", errorInfo);
-  };
-
-  const handleLogin = (): void => {
-    //dispatch(setLogin());
   };
 
   return (
@@ -39,6 +44,8 @@ export default function LoginForm() {
         rules={[{ required: true, message: "Please input your username!" }]}
       >
         <Input
+          value={username}
+          onChange={(e) => setUserName(e.target.value)}
           size="large"
           prefix={<UserOutlined className="site-form-item-icon" />}
         />
@@ -50,6 +57,8 @@ export default function LoginForm() {
         rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input.Password
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           size="large"
           prefix={<LockOutlined className="site-form-item-icon" />}
         />
