@@ -46,7 +46,7 @@ export default function AccountMenu() {
   const dispatch = useDispatch();
 
   const onClick: MenuProps["onClick"] = ({ key }) => {
-    if (key == "3") {
+    if (key == "4") {
       dispatch(setLogout());
     }
   };
