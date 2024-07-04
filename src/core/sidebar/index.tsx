@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { TfiViewGrid, TfiSettings } from "react-icons/tfi";
+import { PiCodepenLogoLight } from "react-icons/pi";
 import "./styles.css";
 
 interface sideBar {
@@ -11,7 +12,9 @@ export default function Sidebar({ sideBarOpen }: sideBar) {
   return (
     <aside className={`side-bar ${sideBarOpen ? "side-bar-open" : null}`}>
       <div className="side-bar-logo-box">
-        <div className="brand-box">Logo</div>
+        <div className="brand-box">
+          <PiCodepenLogoLight />
+        </div>
       </div>
       <div className="side-bar-navigation">
         <NavLink

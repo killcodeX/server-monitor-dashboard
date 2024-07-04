@@ -1,8 +1,9 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { setLogout } from "../../redux/slices/auth";
+import React, { useState } from "react";
 import { TfiAngleDoubleLeft } from "react-icons/tfi";
 import { TfiAngleDoubleRight } from "react-icons/tfi";
+import AccountMenu from "core/header/accountMenu";
+import Notification from "core/header/notification";
+import { PiCodepenLogoLight } from "react-icons/pi";
 import "./styles.css";
 
 interface sideBar {
@@ -11,7 +12,6 @@ interface sideBar {
 }
 
 export default function Header({ sideBarOpen, setSideBarOpen }: sideBar) {
-  const dispatch = useDispatch();
   return (
     <header className={`header ${sideBarOpen ? "header-reduced" : null}`}>
       <div className="header-left-side-container">
@@ -22,10 +22,13 @@ export default function Header({ sideBarOpen, setSideBarOpen }: sideBar) {
         >
           {sideBarOpen ? <TfiAngleDoubleLeft /> : <TfiAngleDoubleRight />}
         </div>
-        <div className="brand-box">Logo</div>
+        {/* <div className="brand-box">
+          <PiCodepenLogoLight />
+        </div> */}
       </div>
       <div className="header-right-side-container">
-        <button onClick={() => dispatch(setLogout())}>Logout</button>
+        <Notification />
+        <AccountMenu />
       </div>
     </header>
   );
