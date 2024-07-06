@@ -1,3 +1,88 @@
+:root {
+  --tw-gray-100: #f9f9f9;
+  --tw-gray-200: #f1f1f4;
+  --tw-gray-300: #dbdfe9;
+  --tw-gray-400: #c4cada;
+  --tw-gray-500: #99a1b7;
+  --tw-gray-600: #78829d;
+  --tw-gray-700: #4b5675;
+  --tw-gray-800: #252f4a;
+  --tw-gray-900: #071437;
+  --tw-brand: #ff6f1e;
+  --tw-brand-active: #f15700;
+  --tw-brand-light: #fff5ef;
+  --tw-brand-clarity: #ff6f1e33;
+  --tw-brand-inverse: #fff;
+  --tw-primary: #1b84ff;
+  --tw-primary-active: #056ee9;
+  --tw-primary-light: #eff6ff;
+  --tw-primary-clarity: #1b84ff33;
+  --tw-primary-inverse: #fff;
+  --tw-success: #17c653;
+  --tw-success-active: #04b440;
+  --tw-success-light: #eafff1;
+  --tw-success-clarity: #17c65333;
+  --tw-success-inverse: #fff;
+  --tw-info: #7239ea;
+  --tw-info-active: #5014d0;
+  --tw-info-light: #f8f5ff;
+  --tw-info-clarity: #7239ea33;
+  --tw-info-inverse: #fff;
+  --tw-danger: #f8285a;
+  --tw-danger-active: #d81a48;
+  --tw-danger-light: #ffeef3;
+  --tw-danger-clarity: #f8285a33;
+  --tw-danger-inverse: #fff;
+  --tw-warning: #f6b100;
+  --tw-warning-active: #dfa000;
+  --tw-warning-light: #fff8dd;
+  --tw-warning-clarity: #f6b10033;
+  --tw-warning-inverse: #fff;
+  --tw-dark: #1e2129;
+  --tw-dark-active: #111318;
+  --tw-dark-light: #f9f9f9;
+  --tw-dark-clarity: #1e212933;
+  --tw-dark-inverse: #fff;
+  --tw-light: #fff;
+  --tw-light-active: #fcfcfc;
+  --tw-light-light: #fff;
+  --tw-light-clarity: #fff3;
+  --tw-light-inverse: #4b5675;
+  --tw-secondary: #f9f9f9;
+  --tw-secondary-active: #f9f9f9;
+  --tw-secondary-light: #f9f9f9;
+  --tw-secondary-clarity: #f9f9f933;
+  --tw-secondary-inverse: #4b5675;
+  --tw-default-box-shadow: 0px 4px 12px 0px #00000017;
+  --tw-light-box-shadow: 0px 3px 4px 0px #00000008;
+  --tw-primary-box-shadow: 0px 4px 12px 0px #2884ef59;
+  --tw-success-box-shadow: 0px 4px 12px 0px #35bd6459;
+  --tw-danger-box-shadow: 0px 4px 12px 0px #f1416c59;
+  --tw-info-box-shadow: 0px 4px 12px 0px #7239ea59;
+  --tw-warning-box-shadow: 0px 4px 12px 0px #f6c00059;
+  --tw-dark-box-shadow: 0px 4px 12px 0px #252f4a59;
+  --tw-card-background-color: #fff;
+  --tw-tooltip-background-color: #0f1014;
+  --tw-popover-background-color: #fff;
+  --tw-modal-background-color: #fff;
+  --tw-drawer-background-color: #fff;
+  --tw-dropdown-background-color: #fff;
+  --tw-backdrop-background-color: #000c;
+  --tw-table-head-background-color: var(--tw-light-active);
+  --tw-card-border: 1px solid var(--tw-gray-200);
+  --tw-table-border: 1px solid var(--tw-gray-200);
+  --tw-dropdown-border: 1px solid var(--tw-gray-200);
+  --tw-popover-border: 1px solid var(--tw-gray-200);
+  --tw-tooltip-border: 0;
+  --tw-card-box-shadow: 0px 3px 4px 0px #00000008;
+  --tw-tooltip-box-shadow: 0px 3px 4px 0px #00000008;
+  --tw-popover-box-shadow: 0px 3px 4px 0px #00000008;
+  --tw-modal-box-shadow: 0px 10px 14px 0px #0f2a5108;
+  --tw-drawer-box-shadow: 0px 3px 4px 0px #00000008;
+  --tw-dropdown-box-shadow: 0px 7px 18px 0px #00000017;
+  --tw-input-box-shadow: 0px 0px 10px 0px #0000001a;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -37,6 +122,28 @@ body {
 }
 
 .card-container {
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px;
+  box-shadow: var(--bs-root-card-box-shadow);
   box-sizing: border-box;
+}
+
+/* rgba(0, 0, 0, 0.12) 0px 0px 8px; */
+
+.primary {
+  color: var(--tw-primary);
+}
+
+.info {
+  color: var(--tw-info);
+}
+
+.warning {
+  color: var(--tw-warning);
+}
+
+.success {
+  color: var(--tw-success);
+}
+
+.danger {
+  color: var(--tw-danger);
 }

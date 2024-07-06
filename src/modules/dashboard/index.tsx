@@ -2,6 +2,7 @@ import React from "react";
 import { Col, Row, Space, Button } from "antd";
 import CardContainer from "components/CardContainer";
 import { AiOutlinePlus } from "react-icons/ai";
+import ServerStatus from "./serverStatus";
 import Filters from "./filters";
 import Table from "./table";
 import Servers from "./progress";
@@ -19,6 +20,13 @@ export default function Dashboard() {
         <Row>
           <Col span={24}>
             <CardContainer>
+              <ServerStatus />
+            </CardContainer>
+          </Col>
+        </Row>
+        <Row>
+          <Col span={24}>
+            <CardContainer pad="0px 20px 20px 20px">
               <Servers />
             </CardContainer>
           </Col>
