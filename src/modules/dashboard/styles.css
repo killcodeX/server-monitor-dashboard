@@ -3,3 +3,126 @@
   font-weight: 600;
   line-height: 1.4;
 }
+
+.server-status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.server-status-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.server-status,
+.server-status-items,
+.server-status-values,
+.server-status-details {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.server-status {
+  gap: 40px;
+}
+
+.server-status-details,
+.server-status-values {
+  gap: 8px;
+}
+
+.server-status-details {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.server-status-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1;
+  border-radius: 10px;
+}
+
+.running {
+  color: var(--tw-success);
+  background-color: var(--tw-success-light);
+  border: 1px solid var(--tw-success-clarity);
+}
+
+.stopped {
+  color: var(--tw-danger);
+  background-color: var(--tw-danger-light);
+  border: 1px solid var(--tw-danger-clarity);
+}
+
+/* progress details */
+.progress-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.progress-item-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.progress-details {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.progress-details-lists {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+
+.progress-details-lists-running,
+.progress-details-lists-stop {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.progress-details-list-running,
+.progress-details-list-stop {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--tw-gray-300);
+}
+
+.progress-details-lists-running-label,
+.progress-details-lists-stop-label {
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.progress-details-lists-running-value,
+.progress-details-lists-stop-value {
+  min-width: 30px;
+}

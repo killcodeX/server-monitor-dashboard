@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "modules/dashboard";
-import Dashboard2 from "modules/dashboard2";
+import Schedules from "modules/schedules";
+import Reports from "modules/reports";
+import Settings from "modules/settings";
 import Login from "modules/auth/login";
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "core/layout";
@@ -18,10 +20,26 @@ export default function AppRoutes() {
           }
         />
         <Route
-          path="2"
+          path="/schedules"
           element={
             <ProtectedRoute>
-              <Dashboard2 />
+              <Schedules />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/reports"
+          element={
+            <ProtectedRoute>
+              <Reports />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
             </ProtectedRoute>
           }
         />

@@ -1,6 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { TfiViewGrid, TfiSettings } from "react-icons/tfi";
+import {
+  TfiViewGrid,
+  TfiCalendar,
+  TfiClipboard,
+  TfiSettings,
+} from "react-icons/tfi";
 import { PiCodepenLogoLight } from "react-icons/pi";
 import "./styles.css";
 
@@ -25,7 +30,21 @@ export default function Sidebar({ sideBarOpen }: sideBar) {
           <span>Dashboard</span>
         </NavLink>
         <NavLink
-          to="/2"
+          to="/schedules"
+          className={`navlink ${sideBarOpen ? "side-text" : null}`}
+        >
+          <TfiCalendar />
+          <span>Schedules</span>
+        </NavLink>
+        <NavLink
+          to="/reports"
+          className={`navlink ${sideBarOpen ? "side-text" : null}`}
+        >
+          <TfiClipboard />
+          <span>Reports</span>
+        </NavLink>
+        <NavLink
+          to="/settings"
           className={`navlink ${sideBarOpen ? "side-text" : null}`}
         >
           <TfiSettings />

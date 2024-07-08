@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Dashboard2() {
+export default function Schedules() {
   return <div>Dashboard2</div>;
 }
