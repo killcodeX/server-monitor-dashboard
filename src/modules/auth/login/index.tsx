@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin } from "../../../redux/slices/auth";
+import { setLogin } from "../../../store/slices/auth";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineDatabase, AiOutlineCodepen } from "react-icons/ai";
 import HorizontalSeparator from "components/HorizontalSeparator";
@@ -45,7 +45,7 @@ export default function Login() {
             Sign in to your account to continue
           </div>
         </div>
-        <FormLogin handleLogin={handleLogin}/>
+        <FormLogin handleLogin={handleLogin} />
         <HorizontalSeparator label={"OR"} />
         <GoogleLogin onSuccess={responseMessage} />
       </div>

@@ -17,16 +17,16 @@ const conicColors: ProgressProps["strokeColor"] = {
 
 // Creating a interface
 interface ProgressDetailsTypes {
-  data: object[];
+  data: ProgressItemDetailsTypes[];
 }
 
-interface ProgressItemDetailsTypes {
-  id: string;
+export interface ProgressItemDetailsTypes {
+  id: number;
   heading: string;
   headingIcon: React.ReactNode;
 }
 
-export default function ProgressDetails({ data }: any) {
+export default function ProgressDetails({ data }: ProgressDetailsTypes) {
   return (
     <Row gutter={16}>
       {data.map((item: ProgressItemDetailsTypes) => {

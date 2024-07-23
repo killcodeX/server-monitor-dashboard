@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setLogout } from "../../redux/slices/auth";
+import { setLogout } from "../../store/slices/auth";
 import { Avatar, Dropdown } from "antd";
 import type { MenuProps } from "antd";
 import { AiOutlineUser } from "react-icons/ai";

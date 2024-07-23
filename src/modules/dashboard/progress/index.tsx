@@ -2,9 +2,9 @@ import React from "react";
 import { Row, Col, Flex, Progress, Divider, Tabs } from "antd";
 import type { TabsProps } from "antd";
 import { TfiBlackboard, TfiCalendar, TfiStatsUp } from "react-icons/tfi";
-import ProgressDetails from "./progressDetails";
+import ProgressDetails, { ProgressItemDetailsTypes } from "./progressDetails";
 
-let data = [
+let data: ProgressItemDetailsTypes[] = [
   {
     id: 1,
     heading: "On-demand Server Actions",
