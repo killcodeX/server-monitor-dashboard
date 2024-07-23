@@ -1,0 +1,58 @@
+.server-monitor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+  /* align-items: center; */
+  margin: 0px;
+}
+
+.server-monitor-date-picker-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.server-monitor-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(24, 36px);
+  grid-gap: 2.5px;
+}
+
+.server-monitor-header {
+  display: contents;
+}
+
+.server-monitor-hour,
+.server-monitor-day {
+  font-size: 9px;
+  padding: 4px 0px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.server-monitor-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  /* height: 25px; */
+}
+
+.server-monitor-row {
+  display: contents;
+}
+
+.server-monitor-cell {
+  width: 37px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.server-monitor-cell.active {
+  background-color: var(--tw-success);
+}
+
+.server-monitor-cell.stopped {
+  border: none;
+  background-color: var(--tw-danger);
+}

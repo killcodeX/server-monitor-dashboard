@@ -33,7 +33,6 @@ const columns: ColumnsType<DataType> = [
     key: "tags",
     dataIndex: "tags",
     render: (_, { tags }) => {
-      console.log(tags);
       return (
         <>
           {tags &&

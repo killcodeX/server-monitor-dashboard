@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Row, Flex, Space } from "antd";
 import CardContainer from "components/CardContainer";
+import ServerMonitor from "components/ServerMonitor";
 import Details from "./details";
 import Table from "./table";
 
@@ -16,7 +17,9 @@ export default function Scheduler() {
       </Row>
       <Row>
         <Col span={24}>
-          <CardContainer>12</CardContainer>
+          <CardContainer>
+            <ServerMonitor />
+          </CardContainer>
         </Col>
       </Row>
       <Row>
