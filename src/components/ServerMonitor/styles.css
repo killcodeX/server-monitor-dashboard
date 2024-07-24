@@ -14,8 +14,10 @@
 
 .server-monitor-grid {
   display: grid;
-  grid-template-columns: 60px repeat(24, 36px);
+  grid-template-columns: minmax(60px, 1fr) repeat(24, minmax(35px, 1fr));
+  grid-auto-rows: 25px;
   grid-gap: 2.5px;
+  width: 100%;
 }
 
 .server-monitor-header {
@@ -35,7 +37,6 @@
   align-items: center;
   justify-content: center;
   width: 60px;
-  /* height: 25px; */
 }
 
 .server-monitor-row {
@@ -43,8 +44,6 @@
 }
 
 .server-monitor-cell {
-  width: 37px;
-  height: 25px;
   cursor: pointer;
 }
 
