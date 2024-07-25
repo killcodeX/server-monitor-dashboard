@@ -21,8 +21,13 @@ export default function ServerMonitor() {
 
   useEffect(() => {
     const dates = eachDayOfInterval({ start: startDate, end: endDate });
-    if (dates.length === 7) {
+    if (dates.length <= 28) {
       setDays(dates);
+      setSchedule(
+        Array(dates.length)
+          .fill(null)
+          .map(() => Array(24).fill("active"))
+      );
     }
   }, [startDate, endDate]);
 
