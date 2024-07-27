@@ -147,3 +147,26 @@ body {
 .danger {
   color: var(--tw-danger);
 }
+
+.section-information {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.section-information-heading {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: #023e8a;
+  margin: 0;
+}
+
+.section-information-subheading {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--tw-gray-600);
+  margin: 0;
+}

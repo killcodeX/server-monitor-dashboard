@@ -7,9 +7,16 @@
   margin: 0px;
 }
 
-.server-monitor-date-picker-container {
+.server-monitor-container-header {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.server-monitor-date-picker-container {
+  /* display: flex; */
+  /* justify-content: flex-end; */
 }
 
 .server-monitor-grid {
@@ -53,5 +60,5 @@
 
 .server-monitor-cell.stopped {
   border: none;
-  background-color: var(--tw-danger);
+  background-color: var(--tw-danger-active);
 }

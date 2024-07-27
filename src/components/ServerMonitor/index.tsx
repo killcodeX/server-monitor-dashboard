@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { DatePicker, Flex, Tag } from "antd";
 import { format, eachDayOfInterval, startOfDay } from "date-fns";
 import dayjs, { Dayjs } from "dayjs";
+import { ServerMonitorProps } from "./schema";
 import "./styles.css";
 
 const { RangePicker } = DatePicker;
 const hours: string[] = Array.from({ length: 24 }, (_, i) => `${i}:00`);
-const days: string[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+// const days: string[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
-export default function ServerMonitor() {
+export default function ServerMonitor(props: ServerMonitorProps) {
+  const { heading, subheading } = props;
   const [schedule, setSchedule] = useState(
     Array(7)
       .fill(null)
@@ -52,12 +54,18 @@ export default function ServerMonitor() {
 
   return (
     <div className="server-monitor-container">
-      <div className="server-monitor-date-picker-container">
-        <RangePicker
-          defaultValue={[dayjs(startDate), dayjs(endDate)]}
-          onChange={handleDateChange}
-          format="YYYY-MM-DD"
-        />
+      <div className="server-monitor-container-header">
+        <div className="section-information">
+          <h3 className="section-information-heading">{heading}</h3>
+          <span className="section-information-subheading">{subheading}</span>
+        </div>
+        <div className="server-monitor-date-picker-container">
+          <RangePicker
+            defaultValue={[dayjs(startDate), dayjs(endDate)]}
+            onChange={handleDateChange}
+            format="YYYY-MM-DD"
+          />
+        </div>
       </div>
       <div className="server-monitor-grid">
         <div className="server-monitor-header">
