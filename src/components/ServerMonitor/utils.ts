@@ -1,5 +1,3 @@
-import { format, eachDayOfInterval, startOfDay } from "date-fns";
-
 export const handleDateChange = ({
   dates,
   setStartDate,

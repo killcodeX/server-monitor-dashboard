@@ -1,5 +1,6 @@
 import React from "react";
 import { format } from "date-fns";
+import { Modal } from "antd";
 import { toggleCell } from "./utils";
 import { ServerGridProps } from "../../schemas/ServerMonitorSchema";
 
@@ -11,6 +12,18 @@ export default function ServerGrid({
   setSchedule,
   days,
 }: ServerGridProps) {
+  const handleServerToggle = ({ dayIndex, hourIndex }: any) => {
+    Modal.warning({
+      title: "Warning",
+      content: "You want to stop the server?",
+      onOk() {
+        toggleCell({ dayIndex, hourIndex, schedule, setSchedule });
+      },
+      okCancel: true,
+      onCancel() {},
+    });
+  };
+
   return (
     <div className="server-monitor-grid">
       <div className="server-monitor-header">
@@ -28,9 +41,7 @@ export default function ServerGrid({
             <div
               key={hourIndex}
               className={`server-monitor-cell ${schedule[dayIndex][hourIndex]}`}
-              onClick={() =>
-                toggleCell({ dayIndex, hourIndex, schedule, setSchedule })
-              }
+              onClick={() => handleServerToggle({ dayIndex, hourIndex })}
             ></div>
           ))}
         </div>
