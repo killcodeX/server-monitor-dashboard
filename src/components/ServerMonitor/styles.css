@@ -1,0 +1,78 @@
+.server-monitor-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: flex-start;
+  /* align-items: center; */
+  margin: 0px;
+}
+
+.server-monitor-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.server-monitor-date-picker-container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.server-monitor-date-picker-interval-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.server-monitor-date-picker-interval-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--tw-gray-700);
+}
+
+.server-monitor-grid {
+  display: grid;
+  grid-template-columns: minmax(60px, 1fr) repeat(24, minmax(35px, 1fr));
+  grid-auto-rows: 25px;
+  grid-gap: 2.5px;
+  width: 100%;
+}
+
+.server-monitor-header {
+  display: contents;
+}
+
+.server-monitor-hour,
+.server-monitor-day {
+  font-size: 9px;
+  padding: 4px 0px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.server-monitor-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+}
+
+.server-monitor-row {
+  display: contents;
+}
+
+.server-monitor-cell {
+  cursor: pointer;
+}
+
+.server-monitor-cell.active {
+  background-color: var(--tw-success);
+}
+
+.server-monitor-cell.stopped {
+  border: none;
+  background-color: var(--tw-danger-active);
+}

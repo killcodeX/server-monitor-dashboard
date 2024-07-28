@@ -1,10 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
+import { useAppSelector } from "store/hooks";
 
 const ProtectedRoute = ({ children }: React.PropsWithChildren) => {
-  let isAuthenticated: boolean = useSelector(
-    (state: any) => state.auth.isAuthenticated
+  let isAuthenticated: boolean = useAppSelector(
+    (state) => state.auth.isAuthenticated
   );
 
   let location = useLocation();

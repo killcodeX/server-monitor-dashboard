@@ -105,20 +105,6 @@ const data: DataType[] = [
     address: "Sydney No. 1 Lake Park",
     tags: ["cool", "teacher"],
   },
-  {
-    key: "7",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"],
-  },
-  {
-    key: "8",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"],
-  },
 ];
 
 export default function Table() {
@@ -126,7 +112,7 @@ export default function Table() {
     <>
       <Row>
         <Col span={24}>
-          <div className="title">Filters</div>
+          <div className="title">Schedules</div>
         </Col>
       </Row>
       <Divider style={{ margin: "12px 0" }} />

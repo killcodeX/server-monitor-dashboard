@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row, Space, Button } from "antd";
+import { useNavigate } from "react-router-dom";
 import CardContainer from "components/CardContainer";
 import { AiOutlinePlus } from "react-icons/ai";
 import ServerStatus from "./serverStatus";
@@ -9,12 +10,18 @@ import Servers from "./progress";
 import "./styles.css";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   return (
     <section id="dashboard">
       <Space direction="vertical" size="large" style={{ display: "flex" }}>
         <Row>
           <Col span={24}>
-            <Button icon={<AiOutlinePlus />}>New Schedule</Button>
+            <Button
+              icon={<AiOutlinePlus />}
+              onClick={() => navigate("/new-schedule")}
+            >
+              New Schedule
+            </Button>
           </Col>
         </Row>
         <Row>

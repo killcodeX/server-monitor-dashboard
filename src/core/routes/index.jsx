@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Dashboard from "modules/dashboard";
 import Schedules from "modules/schedules";
+import NewSchedule from "modules/newSchedule";
 import Reports from "modules/reports";
 import Settings from "modules/settings";
 import Login from "modules/auth/login";
@@ -40,6 +41,14 @@ export default function AppRoutes() {
           element={
             <ProtectedRoute>
               <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/new-schedule"
+          element={
+            <ProtectedRoute>
+              <NewSchedule />
             </ProtectedRoute>
           }
         />
