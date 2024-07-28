@@ -15,8 +15,22 @@
 }
 
 .server-monitor-date-picker-container {
-  /* display: flex; */
-  /* justify-content: flex-end; */
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.server-monitor-date-picker-interval-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.server-monitor-date-picker-interval-label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--tw-gray-700);
 }
 
 .server-monitor-grid {

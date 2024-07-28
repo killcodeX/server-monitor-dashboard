@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { DatePicker, Flex, Tag } from "antd";
-import { format, eachDayOfInterval, startOfDay } from "date-fns";
-import dayjs, { Dayjs } from "dayjs";
-import { ServerMonitorProps } from "./schema";
+import dayjs from "dayjs";
+import { eachDayOfInterval } from "date-fns";
+import { ServerMonitorProps } from "../../schemas/ServerMonitorSchema";
+import ServerHeader from "./serverHeader";
+import ServerGrid from "./serverGrid";
+import ServerFooter from "./serverFooter";
 import "./styles.css";
-
-const { RangePicker } = DatePicker;
-const hours: string[] = Array.from({ length: 24 }, (_, i) => `${i}:00`);
-// const days: string[] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
 
 export default function ServerMonitor(props: ServerMonitorProps) {
   const { heading, subheading } = props;
+  const [daysInterval, setDaysInterval] = useState<number>(7);
   const [schedule, setSchedule] = useState(
-    Array(7)
+    Array(daysInterval)
       .fill(null)
       .map(() => Array(24).fill("active"))
   );
@@ -21,9 +20,11 @@ export default function ServerMonitor(props: ServerMonitorProps) {
   const [endDate, setEndDate] = useState<Date>(new Date(2022, 2, 7));
   const [days, setDays] = useState<Date[]>([]);
 
+  // console.log({ startDate, endDate });
+
   useEffect(() => {
     const dates = eachDayOfInterval({ start: startDate, end: endDate });
-    if (dates.length <= 28) {
+    if (dates.length) {
       setDays(dates);
       setSchedule(
         Array(dates.length)
@@ -31,70 +32,27 @@ export default function ServerMonitor(props: ServerMonitorProps) {
           .map(() => Array(24).fill("active"))
       );
     }
-  }, [startDate, endDate]);
-
-  const toggleCell = (dayIndex: any, hourIndex: any) => {
-    const newSchedule = schedule.map((day, i) =>
-      day.map((hour, j) => {
-        if (i === dayIndex && j === hourIndex) {
-          return hour === "active" ? "stopped" : "active";
-        }
-        return hour;
-      })
-    );
-    setSchedule(newSchedule);
-  };
-
-  const handleDateChange = (dates: any) => {
-    if (dates) {
-      setStartDate(startOfDay(dates[0].toDate()));
-      setEndDate(startOfDay(dates[1].toDate()));
-    }
-  };
+  }, [startDate, endDate, daysInterval]);
 
   return (
     <div className="server-monitor-container">
-      <div className="server-monitor-container-header">
-        <div className="section-information">
-          <h3 className="section-information-heading">{heading}</h3>
-          <span className="section-information-subheading">{subheading}</span>
-        </div>
-        <div className="server-monitor-date-picker-container">
-          <RangePicker
-            defaultValue={[dayjs(startDate), dayjs(endDate)]}
-            onChange={handleDateChange}
-            format="YYYY-MM-DD"
-          />
-        </div>
-      </div>
-      <div className="server-monitor-grid">
-        <div className="server-monitor-header">
-          <div></div>
-          {hours.map((hour, index) => (
-            <div key={index} className="server-monitor-hour">
-              {hour}
-            </div>
-          ))}
-        </div>
-        {days.map((day, dayIndex) => (
-          <div key={dayIndex} className="server-monitor-row">
-            <div className="server-monitor-day">
-              {format(day, "EEE dd MMM")}
-            </div>
-            {hours.map((_, hourIndex) => (
-              <div
-                key={hourIndex}
-                className={`server-monitor-cell ${schedule[dayIndex][hourIndex]}`}
-                onClick={() => toggleCell(dayIndex, hourIndex)}
-              ></div>
-            ))}
-          </div>
-        ))}
-      </div>
-      <Flex gap="4px 0" wrap justify="end">
-        <Tag color="green">Server Running</Tag>
-        <Tag color="red">Server Stopped</Tag>
-      </Flex>
+      <ServerHeader
+        heading={heading}
+        subheading={subheading}
+        daysInterval={daysInterval}
+        setDaysInterval={setDaysInterval}
+        startDate={startDate}
+        setStartDate={setStartDate}
+        endDate={endDate}
+        setEndDate={setEndDate}
+      />
+      <ServerGrid schedule={schedule} setSchedule={setSchedule} days={days} />
+      <ServerFooter
+        startDate={startDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+        daysInterval={daysInterval}
+      />
     </div>
   );
 }
