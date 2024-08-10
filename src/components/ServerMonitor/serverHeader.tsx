@@ -1,8 +1,6 @@
 import React from "react";
 import { DatePicker, Radio, Flex } from "antd";
-import type { DatePickerProps } from "antd";
-import { handleDateChange, changeInterval } from "./utils";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { ServerHeaderProps } from "../../schemas/ServerMonitorSchema";
 const { RangePicker } = DatePicker;
 
@@ -29,15 +27,7 @@ export default function ServerHeader({
           </div>
           <Radio.Group
             value={daysInterval.toString()}
-            onChange={(event) =>
-              changeInterval({
-                startDate,
-                setStartDate,
-                setEndDate,
-                interval: Number(event.target.value),
-                setDaysInterval,
-              })
-            }
+            onChange={(event) => setDaysInterval(event.target.value - 0)}
           >
             <Radio value="7">7 days</Radio>
             <Radio value="28">28 days</Radio>
