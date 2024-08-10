@@ -8,7 +8,7 @@ export const handleDateChange = ({
     const startDate = new Date(dates);
     startDate.setHours(0, 0, 0, 0); // Set to start of day
     const endDate = new Date(startDate);
-    endDate.setDate(endDate.getDate() + daysInterval);
+    endDate.setDate(endDate.getDate() + daysInterval - 1);
     setStartDate(startDate);
     setEndDate(endDate);
   }

@@ -43,7 +43,7 @@ export default function ServerHeader({
             <Radio value="28">28 days</Radio>
           </Radio.Group>
         </div>
-        <Flex gap="8px">
+        {/* <Flex gap="8px">
           <DatePicker
             value={dayjs(startDate)}
             onChange={(dates) =>
@@ -55,21 +55,18 @@ export default function ServerHeader({
               })
             }
           />
-          <DatePicker value={dayjs(endDate)} disabled />
-        </Flex>
-        {/* <RangePicker
+          <DatePicker value={dayjs(endDate)} />
+        </Flex> */}
+        <RangePicker
           defaultValue={[dayjs(startDate), dayjs(endDate)]}
-          onChange={(dates) =>
-            handleDateChange({
-              dates,
-              setStartDate,
-              setEndDate,
-              daysInterval,
-            })
-          }
-          //disabledDate={disabledDaysDate}
+          onChange={(dates: any) => {
+            if (dates) {
+              setStartDate(dates[0]);
+              setEndDate(dates[1]);
+            }
+          }}
           format="YYYY-MM-DD"
-        /> */}
+        />
       </div>
     </div>
   );

@@ -76,3 +76,8 @@
   border: none;
   background-color: var(--tw-danger-active);
 }
+
+.server-monitor-cell.expired {
+  border: none;
+  background-color: var(--tw-gray-400);
+}
