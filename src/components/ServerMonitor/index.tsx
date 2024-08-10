@@ -17,14 +17,17 @@ export default function ServerMonitor(props: ServerMonitorProps) {
   const todayDate = dayjs();
   const [daysInterval, setDaysInterval] = useState<number>(7);
   const [schedule, setSchedule] = useState<ScheduleProps[]>([]);
+  const [currSchedule, setCurrSchedule] = useState<ScheduleProps[]>([]);
   const [days, setDays] = useState<Date[]>([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(0);
+  const [totalSteps, setTotalSteps] = useState(0);
 
   useEffect(() => {
     const diff = eachDayOfInterval({
       start: startDate.toDate(),
       end: endDate.toDate(),
     });
-    console.log("difference between selected dates", diff);
     if (diff.length) {
       let gridDays = diff.map((item) => {
         let sch = hours.map((hr) => {
@@ -40,9 +43,21 @@ export default function ServerMonitor(props: ServerMonitorProps) {
       });
       setDays(diff);
       setSchedule(gridDays);
-      console.log("schedule", gridDays);
     }
-  }, [startDate, endDate, daysInterval]);
+  }, [startDate, endDate]);
+
+  useEffect(() => {
+    const items = [...schedule];
+    const startIdx = totalSteps * daysInterval;
+    const endIdx = startIdx + daysInterval;
+    const currentItems = items.slice(
+      startIndex,
+      Math.min(endIndex, schedule.length)
+    );
+    setStartIndex(startIdx);
+    setEndIndex(endIdx);
+    setCurrSchedule(currentItems);
+  }, [schedule, daysInterval, startIndex, endIndex, totalSteps]);
 
   return (
     <div className="server-monitor-container">
@@ -56,13 +71,19 @@ export default function ServerMonitor(props: ServerMonitorProps) {
         endDate={endDate}
         setEndDate={setEndDate}
       />
-      <ServerGrid schedule={schedule} setSchedule={setSchedule} days={days} />
-      {/* <ServerFooter
-        startDate={startDate}
-        setStartDate={setStartDate}
-        setEndDate={setEndDate}
+      <ServerGrid
+        schedule={currSchedule}
+        setSchedule={setCurrSchedule}
+        days={days}
+      />
+      <ServerFooter
+        startIndex={startIndex}
+        endIndex={endIndex}
+        scheduleLength={schedule.length}
+        totalSteps={totalSteps}
+        setTotalSteps={setTotalSteps}
         daysInterval={daysInterval}
-      /> */}
+      />
     </div>
   );
 }
