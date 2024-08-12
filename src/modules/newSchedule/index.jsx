@@ -16,7 +16,7 @@ import CardContainer from "components/CardContainer";
 import uuid from "react-uuid";
 import { initialSchedule } from "./scheduleObj";
 import dayjs from "dayjs";
-import { scheduleApi } from "core/api/scheduleApi";
+import { newScheduleApi } from "core/api/newScheduleApi";
 
 const { TextArea } = Input;
 
@@ -24,20 +24,31 @@ export default function NewSchedule() {
   const date = dayjs();
   const [startDate, setStartDate] = useState(date);
   const [endDate, setEndDate] = useState(date.add(7, "d"));
+  const [autopark, setAutopark] = useState([]);
   const [form] = Form.useForm();
   const uniqId = uuid();
   const [schedule, setSchedule] = useState(initialSchedule);
 
-  console.log(dayjs());
-
   const onFinish = (values) => {
-    console.log({
+    let details = values.serverDetails.map((item) => {
+      return {
+        ObjectID: item,
+        VMName: item,
+        AccountID: "889148926241",
+        Region: "ap-south-1",
+      };
+    });
+
+    const obj = {
+      ...values,
       RITM: uniqId,
       Action: "Create",
-      startDate: startDate.toString(),
-      endDate: endDate.toString(),
-      ...values,
-    });
+      startDate: startDate.format("YYYY MM DD"),
+      endDate: endDate.format("YYYY MM DD"),
+      schedule: autopark,
+      serverDetails: details,
+    };
+    newScheduleApi(obj);
   };
   return (
     <section id="new-schedule">
@@ -139,26 +150,11 @@ export default function NewSchedule() {
                       >
                         <Select
                           mode="multiple"
+                          allowClear
                           options={[
                             {
                               value: "i-0682485bdac58d5c6",
                               label: "i-0682485bdac58d5c6",
-                            },
-                            {
-                              value: "test 1",
-                              label: "test 1",
-                            },
-                            {
-                              value: "test 2",
-                              label: "test 2",
-                            },
-                            {
-                              value: "test 3",
-                              label: "test 3",
-                            },
-                            {
-                              value: "test 4",
-                              label: "test 4",
                             },
                           ]}
                         />
@@ -194,6 +190,8 @@ export default function NewSchedule() {
                     setStartDate={setStartDate}
                     endDate={endDate}
                     setEndDate={setEndDate}
+                    autopark={autopark}
+                    setAutopark={setAutopark}
                   />
                 </div>
                 <div className="server-schedule">

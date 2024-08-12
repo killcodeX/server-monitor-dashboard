@@ -7,6 +7,8 @@ export interface ServerMonitorProps {
   setStartDate: (event: Dayjs) => void;
   endDate: Dayjs;
   setEndDate: (event: Dayjs) => void;
+  autopark?: any;
+  setAutopark?: (event: any) => void;
 }
 
 export interface ServerHeaderProps {
@@ -34,7 +36,7 @@ export interface ServerFooterProps {
 }
 
 export interface ScheduleItem {
-  time: string;
+  time: number;
   status: string;
 }
 

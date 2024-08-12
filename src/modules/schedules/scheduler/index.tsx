@@ -11,6 +11,7 @@ export default function Scheduler() {
   const date = dayjs();
   const [startDate, setStartDate] = useState(date);
   const [endDate, setEndDate] = useState(date.add(7, "d"));
+  const [autopark, setAutopark] = useState([]);
   return (
     <Space direction="vertical" size="middle" style={{ display: "flex" }}>
       <Row>
@@ -33,6 +34,8 @@ export default function Scheduler() {
                 setStartDate={setStartDate}
                 endDate={endDate}
                 setEndDate={setEndDate}
+                autopark={autopark}
+                setAutopark={setAutopark}
               />
             </Flex>
           </CardContainer>

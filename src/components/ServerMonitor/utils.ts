@@ -14,21 +14,28 @@ export const handleDateChange = ({
   }
 };
 
-export const toggleCell = ({
-  dayIndex,
-  hourIndex,
-  schedule,
-  setSchedule,
-}: any) => {
-  const newSchedule = schedule.map((day: any, i: number) =>
-    day.map((hour: string, j: number) => {
-      if (i === dayIndex && j === hourIndex) {
-        return hour === "active" ? "stopped" : "active";
-      }
-      return hour;
-    })
-  );
-  setSchedule(newSchedule);
+export const toggleCell = ({ sch, day, schedule, setSchedule }: any) => {
+  let resSch = schedule.map((item: any) => {
+    if (item.currDate === day.currDate) {
+      let res = item.schedule.map((tim: any) => {
+        if (tim.time === sch.time) {
+          return {
+            ...tim,
+            status: "stopped",
+          };
+        } else {
+          return tim;
+        }
+      });
+      return {
+        ...item,
+        schedule: res,
+      };
+    } else {
+      return item;
+    }
+  });
+  setSchedule(resSch);
 };
 
 export const changeInterval = ({

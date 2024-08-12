@@ -9,11 +9,19 @@ import ServerHeader from "./serverHeader";
 import ServerGrid from "./serverGrid";
 import ServerFooter from "./serverFooter";
 import "./styles.css";
-const hours: string[] = Array.from({ length: 24 }, (_, i) => `${i}:00`);
+const hours: number[] = Array.from({ length: 24 }, (_, i) => i);
 
 export default function ServerMonitor(props: ServerMonitorProps) {
-  const { heading, subheading, startDate, setStartDate, endDate, setEndDate } =
-    props;
+  const {
+    heading,
+    subheading,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
+    autopark,
+    setAutopark,
+  } = props;
   const todayDate = dayjs();
   const [daysInterval, setDaysInterval] = useState<number>(7);
   const [schedule, setSchedule] = useState<ScheduleProps[]>([]);
@@ -75,6 +83,8 @@ export default function ServerMonitor(props: ServerMonitorProps) {
         schedule={currSchedule}
         setSchedule={setCurrSchedule}
         days={days}
+        autopark={autopark}
+        setAutopark={setAutopark}
       />
       <ServerFooter
         startIndex={startIndex}

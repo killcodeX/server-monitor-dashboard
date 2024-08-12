@@ -5,15 +5,15 @@ export const initialSchedule = {
   reqFor: "",
   env: "aws",
   appName: "",
-  serverDetails: [
-    {
-      serverName: "", //servername & objectid should be same
-      AccountID: "889148926241",
-      ObjectID: "",
-      Region: "ap-south-1",
-    },
-  ],
+  serverDetails: [],
   timeZone: "",
   scheduleName: "",
   justification: "",
 };
+
+// {
+//   serverName: "",
+//   AccountID: "889148926241",
+//   ObjectID: "",
+//   Region: "ap-south-1",
+// },
