@@ -75,4 +75,10 @@
 .server-monitor-cell.stopped {
   border: none;
   background-color: var(--tw-danger-active);
+  background-color: #cf1322;
+}
+
+.server-monitor-cell.expired {
+  border: none;
+  background-color: var(--tw-gray-400);
 }

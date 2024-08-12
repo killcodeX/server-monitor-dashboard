@@ -1,8 +1,6 @@
 import React from "react";
 import { DatePicker, Radio, Flex } from "antd";
-import type { DatePickerProps } from "antd";
-import { handleDateChange, changeInterval } from "./utils";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import { ServerHeaderProps } from "../../schemas/ServerMonitorSchema";
 const { RangePicker } = DatePicker;
 
@@ -29,21 +27,13 @@ export default function ServerHeader({
           </div>
           <Radio.Group
             value={daysInterval.toString()}
-            onChange={(event) =>
-              changeInterval({
-                startDate,
-                setStartDate,
-                setEndDate,
-                interval: Number(event.target.value),
-                setDaysInterval,
-              })
-            }
+            onChange={(event) => setDaysInterval(event.target.value - 0)}
           >
             <Radio value="7">7 days</Radio>
             <Radio value="28">28 days</Radio>
           </Radio.Group>
         </div>
-        <Flex gap="8px">
+        {/* <Flex gap="8px">
           <DatePicker
             value={dayjs(startDate)}
             onChange={(dates) =>
@@ -55,21 +45,18 @@ export default function ServerHeader({
               })
             }
           />
-          <DatePicker value={dayjs(endDate)} disabled />
-        </Flex>
-        {/* <RangePicker
+          <DatePicker value={dayjs(endDate)} />
+        </Flex> */}
+        <RangePicker
           defaultValue={[dayjs(startDate), dayjs(endDate)]}
-          onChange={(dates) =>
-            handleDateChange({
-              dates,
-              setStartDate,
-              setEndDate,
-              daysInterval,
-            })
-          }
-          //disabledDate={disabledDaysDate}
+          onChange={(dates: any) => {
+            if (dates) {
+              setStartDate(dates[0]);
+              setEndDate(dates[1]);
+            }
+          }}
           format="YYYY-MM-DD"
-        /> */}
+        />
       </div>
     </div>
   );
