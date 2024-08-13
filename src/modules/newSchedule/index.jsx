@@ -43,8 +43,8 @@ export default function NewSchedule() {
       ...values,
       RITM: uniqId,
       Action: "Create",
-      startDate: startDate.format("YYYY MM DD"),
-      endDate: endDate.format("YYYY MM DD"),
+      startDate: startDate.format("YYYY-MM-DD"),
+      endDate: endDate.format("YYYY-MM-DD"),
       schedule: autopark,
       serverDetails: details,
     };
